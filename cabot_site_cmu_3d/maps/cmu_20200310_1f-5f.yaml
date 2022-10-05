@@ -100,3 +100,15 @@ map_list:
 #     load_state_filename: "package://cabot_site_cmu_3d/maps/F6-Gates-T1-_2020-03-09-18-20-59.bag.pbstream"
 #     samples_filename: "package://cabot_site_cmu_3d/maps/F6-Gates-T1-_2020-03-09-18-20-59.bag.loc.samples.json"
 #     map_filename: "package://cabot_site_cmu_3d/maps/F6-Gates-T1-_2020-03-09-18-20-59.yaml"
+# F2-Tepper
+  - node_id: "carto2_1"
+    frame_id: "map_carto2_1"
+    latitude: 40.444447
+    longitude: -79.945006
+    rotate: -61.1
+    floor: 1
+    area: 2
+    load_state_filename: "package://cabot_site_cmu_3d/maps/tepper-2f_2022-09-30-14-42-54.bag.carto-converted.bag.pbstream"
+    samples_filename: "package://cabot_site_cmu_3d/maps/tepper-2f_2022-09-30-14-42-54.bag.carto-converted.bag.loc.samples.json"
+    map_filename: "package://cabot_site_cmu_3d/maps/tepper-2f_2022-09-30-14-42-54.bag.carto-converted.yaml"
+
