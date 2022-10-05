@@ -22,7 +22,8 @@ map_list:
     area: 1
     load_state_filename: "package://cabot_site_cmu_3d/maps/F4-NSH-Gates-Wean-T2-_2020-03-10-17-15-31.bag.pbstream"
     samples_filename: "package://cabot_site_cmu_3d/maps/F4-NSH-Gates-Wean-T2-_2020-03-10-17-15-31.bag.loc.samples.json"
-    map_filename: "package://cabot_site_cmu_3d/maps/F4-NSH-Gates-Wean-T2-_2020-03-10-17-15-31.yaml"
+    map_filename: "package://cabot_site_cmu_3d/maps/F4-NSH-Gates-Wean-T2-_2022-08-25-15-46-31.yaml"
+#    map_filename: "package://cabot_site_cmu_3d/maps/F4-NSH-Gates-Wean-T2-_2020-03-10-17-15-31.yaml"
 # # F2-A0-NSH-T1-_2020-03-07-22-40-16
 #   - node_id: "carto1_1"
 #     frame_id: "map_carto1_1"
@@ -68,16 +69,16 @@ map_list:
 #     samples_filename: "package://cabot_site_cmu_3d/maps/F3-Wean-T1-_2020-03-10-16-45-53.bag.loc.samples.json"
 #     map_filename: "package://cabot_site_cmu_3d/maps/F3-Wean-T1-_2020-03-10-16-45-53.yaml"
 # # F5-Gates-T1-_2020-03-09-18-07-12
-#   - node_id: "carto0_4"
-#     frame_id: "map_carto0_4"
-#     latitude: 40.443588
-#     longitude: -79.944452
-#     rotate: -166.6
-#     floor: 4
-#     area: 0
-#     load_state_filename: "package://cabot_site_cmu_3d/maps/F5-Gates-T1-_2020-03-09-18-07-12.bag.pbstream"
-#     samples_filename: "package://cabot_site_cmu_3d/maps/F5-Gates-T1-_2020-03-09-18-07-12.bag.loc.samples.json"
-#     map_filename: "package://cabot_site_cmu_3d/maps/F5-Gates-T1-_2020-03-09-18-07-12.yaml"
+  - node_id: "carto0_4"
+    frame_id: "map_carto0_4"
+    latitude: 40.443588
+    longitude: -79.944452
+    rotate: -166.6
+    floor: 4
+    area: 0
+    load_state_filename: "package://cabot_site_cmu_3d/maps/F5-Gates-T1-_2020-03-09-18-07-12.bag.pbstream"
+    samples_filename: "package://cabot_site_cmu_3d/maps/F5-Gates-T1-_2020-03-09-18-07-12.bag.loc.samples.json"
+    map_filename: "package://cabot_site_cmu_3d/maps/F5-Gates-T1-_2020-03-09-18-07-12.yaml"
 # # F5-Wean-T1-_2020-03-09-17-50-42
 #   - node_id: "carto2_4"
 #     frame_id: "map_carto2_4"
