@@ -1,10 +1,15 @@
 # anchor of F4-NSH-Gates-Wean-T2-_2020-03-10-17-15-31
 anchor:
-  latitude: 40.443192
-  longitude: -79.945658
-  rotate: -128.8
-  floor: 3
-  area: 1
+#  latitude: 40.443192
+#  longitude: -79.945658
+#  rotate: -128.8
+#  floor: 3
+#  area: 1
+  latitude: 40.44518862062472
+  longitude: -79.94499494261065
+  rotate: -59.79675998
+  floor: 1
+  area: 2
 map_list:
 #
 # floor: F2=1, F3=2, F4=3, F5=4, F6=5
