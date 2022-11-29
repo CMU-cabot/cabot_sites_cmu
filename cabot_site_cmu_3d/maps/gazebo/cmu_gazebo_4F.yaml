@@ -22,3 +22,6 @@ map_list:
     load_state_filename: "package://cabot_site_cmu_3d/maps/gazebo/cmu_4fr-gazebo_2022-01-22.pbstream"
     samples_filename: "package://cabot_site_cmu_3d/maps/gazebo/cmu_4fr-gazebo_2022-01-22.loc.samples.json"
     map_filename: "package://cabot_site_cmu_3d/maps/gazebo/cmu_4fr-gazebo_2022-01-22.yaml"
+cartographer:
+  TRAJECTORY_BUILDER_2D.max_range: 30
+  POSE_GRAPH.constraint_builder.min_score: 0.4
