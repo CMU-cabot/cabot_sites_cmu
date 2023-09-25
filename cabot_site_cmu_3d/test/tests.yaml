@@ -1,0 +1,72 @@
+tests:
+# wait until the system is ready
+- name: check I am ready
+  action:
+    type: wait_topic
+    topic: /cabot/activity_log
+    topic_type: cabot_msgs/msg/Log
+    condition: "msg.category=='cabot/interface' and msg.text=='status' and msg.memo=='ready'"
+    timeout: 90
+# check if the system can navigate to a destination
+- name: set the first destination
+  action:
+    type: pub_topic
+    topic: /cabot/event
+    topic_type: std_msgs/msg/String
+    message: "data: 'navigation;destination;EDITOR_node_1495220343136'"
+- name: wait the first goal
+  action:
+    type: wait_topic
+    topic: /cabot/activity_log
+    topic_type: cabot_msgs/msg/Log
+    condition: "msg.category=='cabot/navigation' and msg.text=='navigation' and msg.memo=='arrived'"
+    timeout: 60
+# check if the system can navigate to the next one
+- name: set the second destination
+  action:
+    type: pub_topic
+    topic: /cabot/event
+    topic_type: std_msgs/msg/String
+    message: "data: 'navigation;destination;EDITOR_node_1495220208195'"
+- name: wait the second goal
+  action:
+    type: wait_topic
+    topic: /cabot/activity_log
+    topic_type: cabot_msgs/msg/Log
+    condition: "msg.category=='cabot/navigation' and msg.text=='navigation' and msg.memo=='arrived'"
+    timeout: 60
+# check if the system can cancel a destination and go to a different one
+- name: set a destination to be cancelled
+  action:
+    type: pub_topic
+    topic: /cabot/event
+    topic_type: std_msgs/msg/String
+    message: "data: 'navigation;destination;EDITOR_node_1495220210524'"
+- name: wait a bit
+  action:
+    type: wait
+    seconds: 10
+- name: cancel the destination
+  action:
+    type: pub_topic
+    topic: /cabot/event
+    topic_type: std_msgs/msg/String
+    message: "data: 'navigation;cancel'"
+- name: wait a bit
+  action:
+    type: wait
+    seconds: 10
+- name: set the next destination
+  action:
+    type: pub_topic
+    topic: /cabot/event
+    topic_type: std_msgs/msg/String
+    message: "data: 'navigation;destination;EDITOR_node_1495563142750'"
+- name: wait the goal
+  action:
+    type: wait_topic
+    topic: /cabot/activity_log
+    topic_type: cabot_msgs/msg/Log
+    condition: "msg.category=='cabot/navigation' and msg.text=='navigation' and msg.memo=='arrived'"
+    timeout: 60
+
