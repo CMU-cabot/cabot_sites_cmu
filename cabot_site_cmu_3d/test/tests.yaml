@@ -9,7 +9,7 @@ checks:
 
 # test cases
 tests:
-# wait until the system is ready
+- comment: wait until the system is ready
 - name: check I am ready
   action:
     type: wait_topic
@@ -18,7 +18,7 @@ tests:
     condition: "msg.category=='cabot/interface' and msg.text=='status' and msg.memo=='ready'"
     timeout: 90
 
-# check a buggy situation (send goal, then send another goal before completion)
+- comment: 01. check a buggy situation (send goal, then send another goal before completion)
 - name: set a goal
   action:
     type: pub_topic
@@ -42,7 +42,7 @@ tests:
     topic_type: cabot_msgs/msg/Log
     condition: "msg.category=='cabot/navigation' and msg.text=='completed'"
     timeout: 60
-## return to the initial position
+- comment: return to the initial position
 - name: go to initial position
   action:
     type: pub_topic
@@ -58,7 +58,7 @@ tests:
     timeout: 60
 
 
-# check a buggy situation (send goal while turning)
+- comment: 02. check a buggy situation (send goal while turning)
 - name: set a goal
   action:
     type: pub_topic
@@ -85,7 +85,7 @@ tests:
     topic_type: cabot_msgs/msg/Log
     condition: "msg.category=='cabot/navigation' and msg.text=='completed'"
     timeout: 60
-## return to the initial position
+- comment: return to the initial position
 - name: go to initial position
   action:
     type: pub_topic
@@ -101,7 +101,7 @@ tests:
     timeout: 60
 
 
-# check if the turn goal can be handled
+- comment: 03. check if the turn goal can be handled
 - name: set a turn goal destination
   action:
     type: pub_topic
@@ -129,7 +129,7 @@ tests:
     topic_type: cabot_msgs/msg/Log
     condition: "msg.category=='cabot/navigation' and msg.text=='completed'"
     timeout: 60
-## return to the initial position
+- comment: return to the initial position
 - name: go to initial position
   action:
     type: pub_topic
@@ -145,7 +145,7 @@ tests:
     timeout: 60
 
 
-# check if the system can navigate to a destination
+- comment: 04. check if the system can navigate to a destination
 - name: set the first destination
   action:
     type: pub_topic
@@ -159,7 +159,7 @@ tests:
     topic_type: cabot_msgs/msg/Log
     condition: "msg.category=='cabot/navigation' and msg.text=='navigation' and msg.memo=='arrived'"
     timeout: 60
-# check if the system can navigate to the next one
+- comment: check if the system can navigate to the next one
 - name: set the second destination
   action:
     type: pub_topic
@@ -173,7 +173,7 @@ tests:
     topic_type: cabot_msgs/msg/Log
     condition: "msg.category=='cabot/navigation' and msg.text=='navigation' and msg.memo=='arrived'"
     timeout: 60
-## return to the initial position
+- comment: return to the initial position
 - name: go to initial position
   action:
     type: pub_topic
@@ -189,7 +189,7 @@ tests:
     timeout: 60
 
 
-# check if the system can cancel a destination and go to a different one
+- comment: 05. check if the system can cancel a destination and go to a different one
 - name: set a destination to be cancelled
   action:
     type: pub_topic
@@ -223,7 +223,7 @@ tests:
     topic_type: cabot_msgs/msg/Log
     condition: "msg.category=='cabot/navigation' and msg.text=='navigation' and msg.memo=='arrived'"
     timeout: 60
-## return to the initial position
+- comment: return to the initial position
 - name: go to initial position
   action:
     type: pub_topic
