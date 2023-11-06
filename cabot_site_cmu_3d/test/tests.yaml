@@ -18,7 +18,57 @@ tests:
     condition: "msg.category=='cabot/interface' and msg.text=='status' and msg.memo=='ready'"
     timeout: 90
 
-- comment: 01. check a buggy situation (send goal, then send another goal before completion)
+- comment: 06. check pause and resume
+- name: set a goal
+  action:
+    type: pub_topic
+    topic: /cabot/event
+    topic_type: std_msgs/msg/String
+    message: "data: 'navigation;destination;EDITOR_node_1495220208195'"
+- name: wait a bit
+  action:
+    type: wait
+    seconds: 7
+- name: push left button to pause
+  action:
+    type: pub_topic
+    topic: /cabot/event
+    topic_type: std_msgs/msg/String
+    message: "data: 'button_down_3'"
+- name: wait a bit
+  action:
+    type: wait
+    seconds: 7
+- name: push right button to resume
+  action:
+    type: pub_topic
+    topic: /cabot/event
+    topic_type: std_msgs/msg/String
+    message: "data: 'button_down_4'"
+- name: wait the completion
+  action:
+    type: wait_topic
+    topic: /cabot/activity_log
+    topic_type: cabot_msgs/msg/Log
+    condition: "msg.category=='cabot/navigation' and msg.text=='completed'"
+    timeout: 60
+- comment: return to the initial position
+- name: go to initial position
+  action:
+    type: pub_topic
+    topic: /cabot/event
+    topic_type: std_msgs/msg/String
+    message: "data: 'navigation;destination;EDITOR_node_1490021920691@0'"
+- name: wait the completion
+  action:
+    type: wait_topic
+    topic: /cabot/activity_log
+    topic_type: cabot_msgs/msg/Log
+    condition: "msg.category=='cabot/navigation' and msg.text=='completed'"
+    timeout: 60
+
+
+- comment: 05. check a buggy situation (send goal, then send another goal before completion)
 - name: set a goal
   action:
     type: pub_topic
@@ -58,7 +108,7 @@ tests:
     timeout: 60
 
 
-- comment: 02. check a buggy situation (send goal while turning)
+- comment: 04. check a buggy situation (send goal while turning)
 - name: set a goal
   action:
     type: pub_topic
@@ -145,7 +195,7 @@ tests:
     timeout: 60
 
 
-- comment: 04. check if the system can navigate to a destination
+- comment: 02. check if the system can navigate to a destination
 - name: set the first destination
   action:
     type: pub_topic
@@ -189,7 +239,7 @@ tests:
     timeout: 60
 
 
-- comment: 05. check if the system can cancel a destination and go to a different one
+- comment: 01. check if the system can cancel a destination and go to a different one
 - name: set a destination to be cancelled
   action:
     type: pub_topic
