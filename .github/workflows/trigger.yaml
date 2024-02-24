@@ -2,7 +2,7 @@ name: Trigger Webhook
 
 on:
   push:
-    branches: [ dev-ros2 ]
+    branches: [ ros2 ]
     paths:
       - 'cabot_site_cmu_3d/**'
 
