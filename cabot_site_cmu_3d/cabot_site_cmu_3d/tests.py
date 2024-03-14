@@ -15,7 +15,27 @@ def checks(tester):
 
 
 def wait_ready(tester):
-    tester.wait_ready()
+    tester.wait_localization_started()
+    # tester.wait_ready()
+
+
+def test8_door_goal_and_manual_back(tester):
+    tester.reset_position(x=10, a=0)
+    tester.goto_node('EDITOR_node_1490112635059')
+    tester.wait_goal("NavGoal")
+    tester.wait_for(seconds=1)
+    tester.button_down(3)
+    tester.reset_position(x=20, a=0)
+    tester.button_down(4)
+    tester.wait_navigation_completed()
+
+
+def test7_door_goal(tester):
+    tester.reset_position(x=10, a=0)
+    tester.goto_node('EDITOR_node_1490112635059')
+    tester.wait_goal("NavGoal")
+    tester.reset_position(x=16.5, a=0)
+    tester.wait_navigation_completed()
 
 
 def test6_pause_and_resume(tester):
