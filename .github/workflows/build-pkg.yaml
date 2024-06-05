@@ -1,0 +1,39 @@
+name: Create Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'  # Matches tags like v1.2.3
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Create zip file
+        run: |
+          ./build-pkg.sh cabot_site_cmu_3d
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+
+      - name: Upload release asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./pkg/cabot_site_cmu_3d.zip
+          asset_name: cabot_site_cmu_3d-${{ github.ref }}.zip
+          asset_content_type: application/zip
