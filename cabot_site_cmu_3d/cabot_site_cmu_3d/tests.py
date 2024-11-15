@@ -34,7 +34,7 @@ def test7_door_goal(tester):
     tester.reset_position(x=10, a=0)
     tester.goto_node('EDITOR_node_1490112635059')
     tester.wait_goal("NavGoal")
-    tester.reset_position(x=16.5, a=0)
+    tester.reset_position(x=17.0, a=0)  # Door POI target is at 16.7
     tester.wait_navigation_completed()
 
 
