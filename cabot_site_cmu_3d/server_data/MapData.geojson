@@ -1809,7 +1809,7 @@
 				"type": "Point",
 				"coordinates": [
 					-79.94438195919805,
-					40.44359845657067
+					40.44359845657064
 				]
 			},
 			"properties": {
@@ -2204,6 +2204,38 @@
 				"lat": 40.44340851744764
 			},
 			"_id": "EDITOR_facil_1604633095761"
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [
+					-79.94446852616964,
+					40.44386032084796
+				]
+			},
+			"properties": {
+				"facil_id": "EDITOR_facil_1735229910372",
+				"facil_type": 99,
+				"toilet": 99,
+				"elevator": 99,
+				"escalator": 99,
+				"parking": 99,
+				"barrier": 99,
+				"nursing": 99,
+				"brail_tile": 99,
+				"hulop_file": "EDITOR",
+				"lat": 40.44386032084796,
+				"lon": -79.94446852616964,
+				"ent1_lat": 40.44384744050214,
+				"ent1_lon": -79.94446735301825,
+				"ent1_node": "EDITOR_node_1505139980731",
+				"ent1_fl": 4,
+				"ent1_n": "",
+				"name_en": "Gates, 4F, Elevator",
+				"name_ja": "ゲイツ4階エレベータ前"
+			},
+			"_id": "EDITOR_facil_1735229910372"
 		},
 		{
 			"type": "Feature",
@@ -227765,7 +227797,7 @@
 				"type": "Point",
 				"coordinates": [
 					-79.94587354025984,
-					40.44280194113895
+					40.44280194113898
 				]
 			},
 			"properties": {
