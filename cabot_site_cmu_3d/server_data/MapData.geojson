@@ -185093,13 +185093,14 @@
 			},
 			"properties": {
 				"parking": 99,
+				"name_hira": "NSH ４階 浅川オフィス",
 				"address": "4523",
 				"escalator": 99,
 				"hulop_file": "EDITOR",
 				"hulop_building": "Newell-Simon Hall",
 				"ent1_node": "EDITOR_node_1490194296144",
 				"ent1_lon": -79.94588222222222,
-				"name_ja": "office 4523",
+				"name_ja": "NSH ４階 浅川オフィス",
 				"nursing": 99,
 				"brail_tile": 99,
 				"lon": -79.94589927588474,
@@ -185113,7 +185114,7 @@
 				"ent1_fl": 4,
 				"facil_type": 99,
 				"lat": 40.44323325806499,
-				"name_en": "office 4523"
+				"name_en": "NSH 4th floor Chieko's office"
 			},
 			"_id": "EDITOR_poi_1490194314982"
 		},
@@ -202869,13 +202870,14 @@
 			},
 			"properties": {
 				"parking": 99,
+				"name_hira": "NSH ４階 カフェスペース",
 				"address": "4129",
 				"escalator": 99,
 				"hulop_file": "EDITOR",
 				"hulop_building": "Newell-Simon Hall",
 				"ent1_node": "EDITOR_node_1496171294096",
 				"ent1_lon": -79.9457063888889,
-				"name_ja": "lounge: 4129",
+				"name_ja": "NSH ４階 カフェスペース",
 				"nursing": 99,
 				"brail_tile": 99,
 				"lon": -79.94569386849334,
@@ -202888,7 +202890,7 @@
 				"ent1_fl": 4,
 				"facil_type": 99,
 				"lat": 40.44346023241465,
-				"name_en": "lounge: 4129"
+				"name_en": "NSH 4th floor coffee space"
 			},
 			"_id": "EDITOR_poi_1496171285315"
 		},
@@ -210456,7 +210458,7 @@
 			"properties": {
 				"parking": 99,
 				"hulop_file": "EDITOR",
-				"name_ja": "Wean Library",
+				"name_ja": "Weanホール 図書館",
 				"nursing": 99,
 				"brail_tile": 99,
 				"lon": -79.94577239879906,
@@ -210468,6 +210470,7 @@
 				"tel": "",
 				"ent2_fl": 4,
 				"lat": 40.44261678644301,
+				"name_hira": "ウィーンホール 図書館",
 				"address": "",
 				"escalator": 99,
 				"hulop_building": "Wean Hall",
@@ -210478,7 +210481,7 @@
 				"toilet": 99,
 				"ent1_fl": 4,
 				"facil_type": 99,
-				"name_en": "Wean Library"
+				"name_en": "Wean hall library"
 			},
 			"_id": "EDITOR_poi_1498748758139"
 		},
