@@ -19,6 +19,99 @@ def wait_ready(tester):
     # tester.wait_ready()
 
 
+def test9_button_test(tester):
+    tester.reset_position()
+    tester.goto_node('EDITOR_node_1495563142750')
+    tester.wait_for(3)
+
+    import os
+    default_speed = os.environ.get("CABOT_INIT_SPEED", "1.0")
+
+    # check speed down
+    cancel = tester.check_topic(
+        action_name='check_user_speed_down',
+        topic='/cabot/user_speed',
+        topic_type='std_msgs/msg/Float32',
+        condition=f"msg.data < {default_speed}",
+        timeout=15
+    )
+    tester.button_down(2)
+    tester.wait_for(1)
+    tester.button_down(2)
+    tester.wait_for(1)
+    cancel()
+
+    # check speed up
+    cancel = tester.check_topic(
+        action_name='check_user_speed_up',
+        topic='/cabot/user_speed',
+        topic_type='std_msgs/msg/Float32',
+        condition=f"msg.data == {default_speed}",
+        timeout=15
+    )
+    tester.button_down(1)
+    tester.wait_for(1)
+    tester.button_down(1)
+    tester.wait_for(1)
+    cancel()
+
+    # check pause
+    cancel = tester.check_topic(
+        action_name='check_navigation_pause',
+        topic='/cabot/activity_log',
+        topic_type='cabot_msgs/msg/Log',
+        condition="msg.category=='cabot/navigation' and msg.text=='pause'",
+        timeout=15
+    )
+    tester.button_down(3)
+    tester.wait_for(3)
+    cancel()
+
+    # check pause control
+    cancel = tester.check_topic(
+        action_name='check_navigation_pause_control_true',
+        topic='/cabot/activity_log',
+        topic_type='cabot_msgs/msg/Log',
+        condition="msg.category=='cabot/navigation' and msg.text=='pause_control' and msg.memo=='True'",
+        timeout=15
+    )
+    tester.button_down(3, hold=3)
+    tester.wait_for(3)
+    cancel()
+
+    # check resume
+    cancel = tester.check_topic(
+        action_name='check_navigation_resume',
+        topic='/cabot/activity_log',
+        topic_type='cabot_msgs/msg/Log',
+        condition="msg.category=='cabot/navigation' and msg.text=='resume'",
+        timeout=15
+    )
+    cancel2 = tester.check_topic(
+        action_name='check_navigation_pause_control_false',
+        topic='/cabot/activity_log',
+        topic_type='cabot_msgs/msg/Log',
+        condition="msg.category=='cabot/navigation' and msg.text=='pause_control' and msg.memo=='False'",
+        timeout=15
+    )
+    tester.button_down(4)
+    tester.wait_for(3)
+    cancel()
+    cancel2()
+
+    # check conversation
+    cancel = tester.check_topic(
+        action_name='check_conversation',
+        topic='/cabot/event',
+        topic_type='std_msgs/msg/String',
+        condition="msg.data == 'navigation_conversation'",
+        timeout=15
+    )
+    tester.button_down(2, hold=1)
+
+    tester.wait_navigation_arrived()
+
+
 def test8_door_goal_and_manual_back(tester):
     tester.reset_position(x=10, a=0)
     tester.goto_node('EDITOR_node_1490112635059')
