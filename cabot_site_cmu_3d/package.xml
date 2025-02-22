@@ -24,7 +24,7 @@
 
 <package format="3">
   <name>cabot_site_cmu_3d</name>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   <description>The cabot_site_cmu_3d package</description>
   <maintainer email="daisukes@cmu.edu">Daisuke Sato</maintainer>
   <license>MIT</license>

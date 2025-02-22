@@ -15,6 +15,11 @@ echo "build $CABOT_SITE package version $VERSION"
 # check if ${VERSION} (${VERSION#v}) is matched with version in $CABOT_SITE/package.xml
 if ! grep -q "<version>${VERSION#v}</version>" ./${CABOT_SITE}/package.xml; then
     echo "Version ${VERSION#v} is not matched with version in ${CABOT_SITE}/package.xml: $(grep '<version>' ./${CABOT_SITE}/package.xml)"
+    # make a tmpfile
+    tmpfile=$(mktemp)
+    sed "s|<version>.*</version>|<version>${VERSION#v}</version>|" ./${CABOT_SITE}/package.xml > $tmpfile
+    mv $tmpfile ./${CABOT_SITE}/package.xml
+    echo "Version updated to $(grep '<version>' ./${CABOT_SITE}/package.xml)"
     exit 1
 fi
 
