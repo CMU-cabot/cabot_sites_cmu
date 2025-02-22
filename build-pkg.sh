@@ -31,9 +31,9 @@ docker run --rm \
         . /opt/ros/humble/setup.sh && \
         cd /opt/build_ws && colcon build \
     "
-
-zip -qr ./pkg/${CABOT_SITE}-${VERSION}.zip ./pkg/${CABOT_SITE}
+pushd pkg
+zip -qr ./${CABOT_SITE}-${VERSION}.zip ./${CABOT_SITE}
 
 # delete all files and dirs in pkg dir except the zip file and .gitignore (this is for test build)
-find ./pkg -mindepth 1 -maxdepth 1 -type d -exec rm -r {} \;
-find ./pkg -mindepth 1 -maxdepth 1 -type f ! -name "${CABOT_SITE}-${VERSION}.zip" ! -name .gitignore -exec rm {} \;
+find ./ -mindepth 1 -maxdepth 1 -type d -exec rm -r {} \;
+find ./ -mindepth 1 -maxdepth 1 -type f ! -name "${CABOT_SITE}-${VERSION}.zip" ! -name .gitignore -exec rm {} \;
